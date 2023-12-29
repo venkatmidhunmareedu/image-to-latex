@@ -14,6 +14,11 @@ const Middle = () => {
         }
         setFile(URL.createObjectURL(event.target.files[0]));
     }
+
+    const generateLatex = () => {
+        
+    }
+
     return (
         <div className='flex-row justify-center text-center md:mx-40  mx-5  md:mt-20 mt-10'>
             <div className='flex justify-center my-2'>
