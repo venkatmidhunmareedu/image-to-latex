@@ -1,0 +1,21 @@
+Given an image containing text, follow these steps:
+
+1. Extract text from the image.
+2. If no formulas are found in the text, return only false.
+3. If formulas are found, extract and return the LaTeX code for each formula along with their corresponding headings in LaTeX format.
+
+Example Output:
+
+Formula 1
+E = mc^2
+
+Formuala 1 Explanation: 
+This is Einstein's famous mass-energy equivalence formula.
+
+Formula 2:
+\int_{a}^{b} f(x) \,dx = F(b) - F(a)
+
+Formula 2 Explanation:
+The fundamental theorem of calculus relates the definite integral of a function to its antiderivative.
+
+Note: Replace the sample formulas and explanations with the actual extracted content from the image. The output should be in a LaTeX format for easy integration into LaTeX documents.

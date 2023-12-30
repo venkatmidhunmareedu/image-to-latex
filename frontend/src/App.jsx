@@ -5,6 +5,14 @@ import Middle from './components/Middle'
 import Footer from './components/Footer'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Home from './pages/Home'
+import History from './pages/History'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+
 
 function App() {
   const notify = (type, message) => {
@@ -43,10 +51,24 @@ function App() {
           draggable: true,
           progress: undefined,
           theme: "dark",
-          })
+        })
         break
     }
   }
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home toast={notify} />,
+    },
+    {
+      path: "/history",
+      element: <History />
+    },
+    {
+      path : "*",
+      element : <div> Page you are searching for is not found</div>
+    }
+  ]);
 
   return (
     <>
@@ -63,7 +85,7 @@ function App() {
         theme="dark"
       />
       <Header />
-      <Middle toast={notify} />
+      <RouterProvider router={router} />
       <Footer />
     </>
   )

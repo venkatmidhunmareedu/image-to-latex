@@ -6,6 +6,8 @@ import axios from 'axios';
 import { IoMdClose } from "react-icons/io";
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
+import Markdown from 'react-markdown'
+import MarkdownRenderer from 'react-markdown-renderer';
 
 const Middle = (props) => {
     const [file, setFile] = useState(null);
@@ -13,6 +15,13 @@ const Middle = (props) => {
     const [latexvalue, setLatex] = useState(null);
     const [copied, setCopied] = useState(false);
     const [loading, setLoading] = useState(false);
+    if (!localStorage.getItem("history")) {
+        const history = []
+    }
+    else {
+        const history = JSON.parse(localStorage.getItem("history"))
+    }
+    const history = JSON.parse(localStorage.getItem("history"))
     const handlePreview = (event) => {
         if (event.target.files[0]) {
             props.toast("success", 'Image inserted')
@@ -44,15 +53,17 @@ const Middle = (props) => {
         formData.append("file", file)
         if (file) {
             setLoading(true)
-            await axios.post(`${"https://itl-server.onrender.com/convert"}`, formData).then((response) => {
+            await axios.post(`${"http://127.0.0.1:8000/convert"}`, formData).then((response) => {
                 if (response.data.success == "true") {
                     setLatex(response.data.data)
                     setLoading(false)
+                    history.push(response.data.data)
+                    localStorage.setItem("history" , JSON.stringify(history));
                     props.toast("success", "Latex generation successful!")
                 }
                 else {
                     setLoading(false)
-                    props.toast("error", "Latex generation successfull")
+                    props.toast("error", "Latex generation unsuccessfull")
                 }
             })
                 .catch(err => {
@@ -133,7 +144,7 @@ const Middle = (props) => {
 
             }
             {
-                (latexvalue && !loading) && <div className='flex justify-center text-center my-3'>
+                (latexvalue && !loading) && <div className={`flex justify-center text-center my-3 opacity-${latexvalue ? "100" : "0" } transition-all delay-75`}>
                     <div className='border-2 border-slate-800 rounded-md max-w-sm justify-center relative'>
                         <div className='absolute right-2 top-2 '>
                             <CopyToClipboard text={latexvalue}
