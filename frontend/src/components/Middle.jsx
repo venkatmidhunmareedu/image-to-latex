@@ -57,8 +57,8 @@ const Middle = (props) => {
                 if (response.data.success == "true") {
                     setLatex(response.data.data)
                     setLoading(false)
-                    history.push(response.data.data)
-                    localStorage.setItem("history" , JSON.stringify(history));
+                    // history.push(response.data.data)
+                    // localStorage.setItem("history" , JSON.stringify(history));
                     props.toast("success", "Latex generation successful!")
                 }
                 else {
