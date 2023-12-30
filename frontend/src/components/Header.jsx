@@ -23,9 +23,9 @@ const Header = () => {
                             <li>
                                 <a href="/" className="block py-2 px-3  focus:bg-blue-700 rounded  md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white " aria-current="page">Home</a>
                             </li>
-                            <li>
+                            {/* <li>
                                 <a href="/history" className="block py-2 px-3  focus:bg-blue-700  rounded md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white " aria-current="page">History</a>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
