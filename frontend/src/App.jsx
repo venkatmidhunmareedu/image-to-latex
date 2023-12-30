@@ -32,7 +32,7 @@ function App() {
       case "success":
         toast.success(message, {
           position: "top-center",
-          autoClose: 3500,
+          autoClose: 3500, 
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
