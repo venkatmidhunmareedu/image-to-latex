@@ -53,7 +53,7 @@ const Middle = (props) => {
         formData.append("file", file)
         if (file) {
             setLoading(true)
-            await axios.post(`${"http://127.0.0.1:8000/convert"}`, formData).then((response) => {
+            await axios.post(`${"https://itl-server.onrender.com/convert"}`, formData).then((response) => {
                 if (response.data.success == "true") {
                     setLatex(response.data.data)
                     setLoading(false)
