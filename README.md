@@ -59,6 +59,14 @@ Start the server
 ```
 
 
+## 📸 Screenshots
+
+![App Screenshot](https://github.com/venkatmidhunmareedu/image-to-latex/blob/main/screenshots/1.png)
+
+
+
+![App Screenshot](https://github.com/venkatmidhunmareedu/image-to-latex/blob/main/screenshots/2.png)
+
 
 
 ## 🤝 Contributing
